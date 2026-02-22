@@ -1,0 +1,36 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: #222;
+  color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+}
+
+.auth-buttons button {
+  margin-left: 10px;
+  padding: 6px 15px;
+  border: none;
+  cursor: pointer;
+}
+
+.auth-buttons button:first-child {
+  background: #007bff;
+  color: white;
+}
+
+.auth-buttons button:last-child {
+  background: #28a745;
+  color: white;
+}
