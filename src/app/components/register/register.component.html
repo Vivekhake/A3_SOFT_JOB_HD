@@ -1,15 +1,104 @@
 <h2>Register</h2>
 
-<input type="text" [(ngModel)]="username" placeholder="Username" />
+<form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+  <!-- First Name -->
+  <input
+    type="text"
+    name="first_name"
+    [(ngModel)]="user.first_name"
+    #firstName="ngModel"
+    placeholder="First Name"
+    required
+  />
+  <div style="color: red" *ngIf="firstName.invalid && firstName.touched">
+    First Name is required
+  </div>
+  <br />
 
-<br /><br />
+  <!-- Last Name -->
+  <input
+    type="text"
+    name="last_name"
+    [(ngModel)]="user.last_name"
+    #lastName="ngModel"
+    placeholder="Last Name"
+    required
+  />
+  <div style="color: red" *ngIf="lastName.invalid && lastName.touched">
+    Last Name is required
+  </div>
+  <br />
 
-<input type="email" [(ngModel)]="email" placeholder="Email" />
+  <!-- Email -->
+  <input
+    type="email"
+    name="email"
+    [(ngModel)]="user.email"
+    #email="ngModel"
+    placeholder="Email"
+    required
+    email
+  />
+  <div style="color: red" *ngIf="email.invalid && email.touched">
+    <div *ngIf="email.errors?.['required']">Email is required</div>
+    <div *ngIf="email.errors?.['email']">Invalid email format</div>
+  </div>
+  <br />
 
-<br /><br />
+  <!-- Password -->
+  <input
+    type="password"
+    name="password"
+    [(ngModel)]="user.password"
+    #password="ngModel"
+    placeholder="Password"
+    required
+    minlength="6"
+  />
+  <div style="color: red" *ngIf="password.invalid && password.touched">
+    <div *ngIf="password.errors?.['required']">Password is required</div>
+    <div *ngIf="password.errors?.['minlength']">
+      Password must be at least 6 characters
+    </div>
+  </div>
+  <br />
 
-<input type="password" [(ngModel)]="password" placeholder="Password" />
+  <!-- Confirm Password -->
+  <input
+    type="password"
+    name="confirmPassword"
+    [(ngModel)]="confirmPassword"
+    #confirmPass="ngModel"
+    placeholder="Confirm Password"
+    required
+  />
+  <div
+    style="color: red"
+    *ngIf="confirmPass.touched && user.password !== confirmPassword"
+  >
+    Passwords do not match
+  </div>
+  <br />
 
-<br /><br />
+  <!-- Profile URL -->
+  <input
+    type="text"
+    name="profile_url"
+    [(ngModel)]="user.profile_url"
+    #profileUrl="ngModel"
+    placeholder="Profile URL"
+    required
+  />
+  <div style="color: red" *ngIf="profileUrl.invalid && profileUrl.touched">
+    Profile URL is required
+  </div>
+  <br />
 
-<button (click)="register()">Register</button>
+  <!-- Submit Button -->
+  <button
+    type="submit"
+    [disabled]="registerForm.invalid || user.password !== confirmPassword"
+  >
+    Register
+  </button>
+</form>
