@@ -1,38 +1,45 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  imports: [FormsModule],
   selector: 'app-register',
+  imports: [FormsModule, CommonModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-  username = '';
-  email = '';
-  password = '';
+  constructor(private authService: AuthService) {} // ✅ Injected
 
-  constructor(
-    private authService: AuthService,
-    private router: Router,
-  ) {}
+  user = {
+    first_name: '',
+    last_name: '',
+    email: '',
+    password: '',
+    profile_url: '',
+  };
 
-  register() {
-    const data = {
-      username: this.username,
-      email: this.email,
-      password: this.password,
-    };
+  confirmPassword: string = '';
 
-    this.authService.register(data).subscribe({
-      next: (res) => {
-        alert(res);
-        this.router.navigate(['/login']);
+  register(form: any) {
+    if (form.invalid) {
+      alert('Please fix validation errors');
+      return;
+    }
+
+    if (this.user.password !== this.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    this.authService.register(this.user).subscribe({
+      next: () => {
+        alert('Registration successful');
+        form.reset();
       },
-      error: (err) => {
-        alert(err.error);
+      error: () => {
+        alert('Registration failed');
       },
     });
   }

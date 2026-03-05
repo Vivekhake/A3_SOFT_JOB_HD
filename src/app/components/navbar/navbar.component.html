@@ -10,7 +10,25 @@
   </ul>
 
   <div class="auth-buttons">
-    <button routerLink="/login">Login</button>
-    <button routerLink="/register">Register</button>
+    <!-- ✅ If Logged In -->
+    <div *ngIf="isLoggedIn" class="profile-container">
+      <span>Welcome, {{ firstName }}</span>
+
+      <!-- Profile image with dropdown toggle -->
+      <div class="profile-image" (click)="toggleDropdown()">
+        <img [src]="profileUrl" alt="Profile Image" width="40" height="40" />
+      </div>
+
+      <!-- Dropdown menu for logout -->
+      <div *ngIf="showDropdown" class="dropdown-menu">
+        <button (click)="logout()">Logout</button>
+      </div>
+    </div>
+
+    <!-- ✅ If NOT Logged In -->
+    <div *ngIf="!isLoggedIn">
+      <button><a href="/login">Login</a></button>
+      <button><a href="/register">Register</a></button>
+    </div>
   </div>
 </nav>
