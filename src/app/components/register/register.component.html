@@ -1,4 +1,7 @@
-<h2>Register</h2>
+<div class="register-container">
+  <div class="register-card">
+    <button class="close-btn" type="button" (click)="closeModal()">×</button>
+    <h2>Create Account</h2>
 
 <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
   <!-- First Name -->
@@ -78,6 +81,7 @@
   >
     Passwords do not match
   </div>
+  <p class="small">Already have an account? <a href="#" (click)="goToLogin($event)">Sign In</a></p>
   <br />
 
   <!-- Profile URL -->
@@ -102,3 +106,6 @@
     Register
   </button>
 </form>
+
+  </div>
+</div>

@@ -1,32 +1,30 @@
-<div class="login-card">
-  <h2>Sign In</h2>
+<div class="login-container">
+  <div class="login-card">
+    <button class="close-btn" type="button" (click)="closeModal()">×</button>
+    <h2>Sign In</h2>
 
-  <input type="text" [(ngModel)]="email" placeholder="Email" />
-  <input type="password" [(ngModel)]="password" placeholder="Password" />
+    <input type="text" [(ngModel)]="email" placeholder="Email" />
+    <input type="password" [(ngModel)]="password" placeholder="Password" />
 
-  <div class="forgot">
-    <a href="/forgot-password">Forgot Password?</a>
-  </div>
-
-  <button (click)="login()">Login</button>
-
-  <hr />
-  <div class="social-login-container">
-    <!-- Google Login -->
-    <div class="social-login" (click)="loginWithGoogle()">
-      <i class="fab fa-google"></i>
+    <div class="forgot">
+      <a href="/forgot-password">Forgot Password?</a>
     </div>
 
-    <!-- GitHub Login -->
-    <!-- <div class="social-login github" (click)="loginWithGithub()">
-      <i class="fab fa-github"></i>
-    </div> -->
+    <button (click)="login()">Login</button>
+
+    <hr />
+    <div class="social-login-container">
+      <!-- Google Login -->
+      <div class="social-login" (click)="loginWithGoogle()">
+        <i class="fab fa-google"></i>
+      </div>
+
+      <!-- GitHub Login -->
+      <!-- <div class="social-login github" (click)="loginWithGithub()">
+        <i class="fab fa-github"></i>
+      </div> -->
+    </div>
+
+    <p class="small">Not registered? <a href="#" (click)="goToRegister($event)">Create an account</a></p>
   </div>
-
-  <p class="small">Not registered? <a href="/register">Create an account</a></p>
 </div>
-
-<!--
-loginWithGithub() {
-    window.location.href = 'http://localhost:8080/oauth2/authorization/github';
-  } -->

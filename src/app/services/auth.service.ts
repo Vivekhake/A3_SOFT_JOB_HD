@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Inject, PLATFORM_ID } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -10,6 +11,10 @@ export class AuthService {
   private authUrl = 'http://localhost:8080/api/auth';
   private passwordUrl = 'http://localhost:8080/api/password';
   private googleUrl = 'http://localhost:8080/api/google';
+
+  // Modal State Management
+  public showLoginModal$ = new BehaviorSubject<boolean>(false);
+  public showRegisterModal$ = new BehaviorSubject<boolean>(false);
 
   constructor(
     private http: HttpClient,
@@ -91,5 +96,24 @@ export class AuthService {
 
   isLoggedIn(): boolean {
     return !!this.getToken();
+  }
+
+  // ================= MODAL METHODS =================
+  openLoginModal() {
+    this.showLoginModal$.next(true);
+    this.showRegisterModal$.next(false);
+  }
+
+  closeLoginModal() {
+    this.showLoginModal$.next(false);
+  }
+
+  openRegisterModal() {
+    this.showRegisterModal$.next(true);
+    this.showLoginModal$.next(false);
+  }
+
+  closeRegisterModal() {
+    this.showRegisterModal$.next(false);
   }
 }

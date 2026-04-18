@@ -1,13 +1,12 @@
 import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { FormsModule } from '@angular/forms';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
@@ -87,6 +86,14 @@ export class NavbarComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.isLoggedIn = false;
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
+  }
+
+  openLogin() {
+    this.authService.openLoginModal();
+  }
+
+  openRegister() {
+    this.authService.openRegisterModal();
   }
 }

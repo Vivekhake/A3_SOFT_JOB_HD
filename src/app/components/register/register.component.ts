@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -10,6 +10,8 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
+  @Output() closeRegister = new EventEmitter<void>();
+
   constructor(private authService: AuthService) {} // ✅ Injected
 
   user = {
@@ -37,10 +39,20 @@ export class RegisterComponent {
       next: () => {
         alert('Registration successful');
         form.reset();
+        this.goToLogin(new Event(''));
       },
       error: () => {
         alert('Registration failed');
       },
     });
+  }
+
+  closeModal() {
+    this.closeRegister.emit();
+  }
+
+  goToLogin(event: Event) {
+    if(event) event.preventDefault();
+    this.authService.openLoginModal();
   }
 }

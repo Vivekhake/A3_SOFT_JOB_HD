@@ -1,3 +1,7 @@
+<app-navbar></app-navbar>
 <main>
   <router-outlet></router-outlet>
 </main>
+
+<app-login *ngIf="showLogin" (closeLogin)="closeLogin()"></app-login>
+<app-register *ngIf="showRegister" (closeRegister)="closeRegister()"></app-register>
