@@ -1,0 +1,33 @@
+<div class="slider-container">
+  <div class="slider-wrapper" [style.transform]="'translateX(' + (-currentSlide * 100) + '%)'">
+    <div class="slide" *ngFor="let image of images">
+      <img [src]="image" alt="Slider Image">
+      <div class="slide-content" *ngIf="image.includes('slider1')">
+        <h1>Discover Your Dream Job</h1>
+        <p>Connecting talent with opportunities worldwide.</p>
+      </div>
+      <div class="slide-content" *ngIf="image.includes('slider2')">
+        <h1>Build Excellent Teams</h1>
+        <p>Collaborate, grow and succeed together.</p>
+      </div>
+      <div class="slide-content" *ngIf="image.includes('slider3')">
+        <h1>Innovate Your Career</h1>
+        <p>Step into the future of technology and data.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Arrows -->
+  <button class="nav-btn prev" (click)="prevSlide()">&#10094;</button>
+  <button class="nav-btn next" (click)="nextSlide()">&#10095;</button>
+
+  <!-- Navigation Dots -->
+  <div class="dots-container">
+    <span 
+      class="dot" 
+      *ngFor="let img of images; let i = index" 
+      [class.active]="i === currentSlide"
+      (click)="goToSlide(i)">
+    </span>
+  </div>
+</div>

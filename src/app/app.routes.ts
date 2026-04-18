@@ -7,11 +7,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { OAuthSuccessComponent } from './components/oauth-success/oauth-success.component';
 
 export const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: 'navbar', pathMatch: 'full' }, // use literal 'full'
+  { path: '', redirectTo: 'home', pathMatch: 'full' }, // use literal 'full'
   { path: 'home', component: HomeComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'navbar', component: NavbarComponent },
   { path: 'oauth-success', component: OAuthSuccessComponent },
 ];

@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+
 
 @Component({
   imports: [FormsModule],
@@ -14,9 +14,10 @@ export class LoginComponent {
   email = '';
   password = '';
 
+  @Output() closeLogin = new EventEmitter<void>();
+
   constructor(
     private authService: AuthService,
-    private router: Router,
   ) {}
 
   login() {
@@ -38,8 +39,8 @@ export class LoginComponent {
 
             alert('Login Successful');
 
-            // Redirect
-            this.router.navigate(['/']);
+            // Close Modal
+            this.closeModal();
           },
         });
       },
@@ -57,4 +58,14 @@ export class LoginComponent {
   loginWithGithub() {
     window.location.href = 'http://localhost:8080/oauth2/authorization/github';
   }
+
+  closeModal() {
+    this.closeLogin.emit();
+  }
+
+  goToRegister(event: Event) {
+    if(event) event.preventDefault();
+    this.authService.openRegisterModal();
+  }
 }
+

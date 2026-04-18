@@ -27,8 +27,8 @@
 
     <!-- ✅ If NOT Logged In -->
     <div *ngIf="!isLoggedIn">
-      <button><a href="/login">Login</a></button>
-      <button><a href="/register">Register</a></button>
+      <button (click)="openLogin()">Login</button>
+      <button (click)="openRegister()">Register</button>
     </div>
   </div>
 </nav>
