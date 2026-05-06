@@ -9,8 +9,13 @@
 }
 
 .navbar .logo {
-  font-size: 24px;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.navbar .logo img {
+  height: 40px;
+  object-fit: contain;
 }
 
 .nav-links {

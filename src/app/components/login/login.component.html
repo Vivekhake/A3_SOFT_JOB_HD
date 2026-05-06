@@ -13,16 +13,16 @@
     <button (click)="login()">Login</button>
 
     <hr />
-    <div class="social-login-container">
-      <!-- Google Login -->
-      <div class="social-login" (click)="loginWithGoogle()">
+    <div class="social-auth-buttons">
+      <button class="social-btn google-btn" type="button" (click)="loginWithGoogle()">
         <i class="fab fa-google"></i>
-      </div>
-
-      <!-- GitHub Login -->
-      <!-- <div class="social-login github" (click)="loginWithGithub()">
+        Sign in with Google
+      </button>
+      
+      <button class="social-btn github-btn" type="button" (click)="loginWithGithub()">
         <i class="fab fa-github"></i>
-      </div> -->
+        Sign in with GitHub
+      </button>
     </div>
 
     <p class="small">Not registered? <a href="#" (click)="goToRegister($event)">Create an account</a></p>

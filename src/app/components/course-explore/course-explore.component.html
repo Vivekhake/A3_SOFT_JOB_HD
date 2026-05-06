@@ -1,0 +1,46 @@
+<section class="course-explore-section">
+  <div class="container">
+    <div class="section-header-row">
+      <div class="spacer"></div>
+      <div class="section-title">
+        <h2>Explore Our Upcoming Courses</h2>
+        <p>Transform your career with our industry-aligned programs and upcoming batches.</p>
+      </div>
+      <div class="header-actions">
+        <div class="scroll-buttons">
+          <button class="scroll-btn" (click)="scroll('left')">&#8592;</button>
+          <button class="scroll-btn" (click)="scroll('right')">&#8594;</button>
+        </div>
+        <button class="view-all-btn">View All</button>
+      </div>
+    </div>
+
+    <div class="course-scroll-container" #scrollContainer>
+      <div class="course-card" *ngFor="let course of courses" [ngClass]="course.color">
+        <div class="course-icon">{{ course.icon }}</div>
+        <div class="course-content">
+          <h3>{{ course.title }}</h3>
+          <p class="desc">{{ course.description }}</p>
+
+          <div class="course-details">
+            <div class="detail-item">
+              <span class="label">Duration:</span>
+              <span class="value">{{ course.duration }}</span>
+            </div>
+            <div class="detail-item">
+              <span class="label">Mode:</span>
+              <span class="value">{{ course.mode }}</span>
+            </div>
+          </div>
+
+          <div class="batch-info">
+            <span class="batch-label">Next Batch Starts:</span>
+            <span class="batch-date">{{ course.nextBatch }}</span>
+          </div>
+
+          <button class="enroll-btn">View Details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
