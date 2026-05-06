@@ -129,43 +129,61 @@ hr {
   border-top: 1px solid #eee;
 }
 
-/* Social container (flex) */
-.social-login-container {
+/* Social Auth Buttons */
+.social-auth-buttons {
   display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 10px;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* Social login icons */
-.social-login {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  border: 1px solid #ddd;
+button.social-btn {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
   cursor: pointer;
-  background: #f9f9fc;
+  transition: all 0.3s ease;
+  margin-top: 0;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-.social-login i {
-  font-size: 20px;
+button.social-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.social-login:hover {
-  background: #fff;
-  border-color: #aaa;
+button.social-btn i {
+  font-size: 18px;
 }
 
-/* GitHub specific */
-.github {
-  border-color: #ddd;
-}
-
-.github i {
+button.google-btn {
+  background: #ffffff;
   color: #333;
+  border: 1px solid #e2e8f0;
+}
+
+button.google-btn i {
+  color: #DB4437; /* Google Red */
+}
+
+button.google-btn:hover {
+  background: #f8fafc;
+}
+
+button.github-btn {
+  background: #24292e;
+  color: #ffffff;
+  border: 1px solid #24292e;
+}
+
+button.github-btn:hover {
+  background: #1b1f23;
+  box-shadow: 0 4px 15px rgba(36, 41, 46, 0.3);
 }
 
 /* Links */

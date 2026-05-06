@@ -15,7 +15,6 @@ export class HeaderComponent {
     'Mobile Development',
     'Programming Languages',
     'Game Development',
-    'Database Design & Development',
-    'Software Testing'
+    'Database Design & Development'
   ];
 }

@@ -1,0 +1,142 @@
+.company-section {
+  padding: 60px 0;
+  background-color: #f8f9fa;
+  overflow: hidden;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  color: #333;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+}
+
+.section-title p {
+  color: #666;
+  font-size: 16px;
+  margin: 0;
+}
+
+.marquee-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.marquee-track {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+}
+
+.marquee-track::before,
+.marquee-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 150px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-track::before {
+  left: 0;
+  background: linear-gradient(to right, #f8f9fa 0%, transparent 100%);
+}
+
+.marquee-track::after {
+  right: 0;
+  background: linear-gradient(to left, #f8f9fa 0%, transparent 100%);
+}
+
+.marquee-content {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+}
+
+.right-to-left .marquee-content {
+  animation: scrollLeft 35s linear infinite;
+}
+
+.left-to-right .marquee-content {
+  animation: scrollRight 35s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-track:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.company-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px 30px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 180px;
+  height: 80px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.company-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+}
+
+.company-card img {
+  max-width: 120px;
+  max-height: 40px;
+  object-fit: contain;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.company-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Animation for right to left */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-50% - 15px)); } /* -15px is half of the 30px gap */
+}
+
+/* Animation for left to right */
+@keyframes scrollRight {
+  0% { transform: translateX(calc(-50% - 15px)); }
+  100% { transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+  .company-card {
+    min-width: 140px;
+    height: 70px;
+    padding: 15px 20px;
+  }
+  
+  .company-card img {
+    max-width: 100px;
+    max-height: 35px;
+  }
+  
+  .marquee-track::before,
+  .marquee-track::after {
+    width: 50px;
+  }
+  
+  .section-title h2 {
+    font-size: 26px;
+  }
+}

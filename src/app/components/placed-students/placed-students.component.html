@@ -1,0 +1,23 @@
+<section class="placed-students-section">
+  <div class="container">
+    <div class="section-title">
+      <h2>Our Placed Superstars</h2>
+      <p>Meet our brilliant students who secured jobs at top companies</p>
+    </div>
+    
+    <div class="students-grid">
+      <div class="student-card" *ngFor="let student of students">
+        <div class="image-wrapper">
+          <img [src]="student.image" [alt]="student.name" class="profile-img">
+        </div>
+        <div class="card-content">
+          <h3>{{ student.name }}</h3>
+          <p class="role">{{ student.role }}</p>
+          <div class="company-badge">
+            Placed at <strong>{{ student.company }}</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,115 @@
+.placed-students-section {
+  padding: 80px 20px;
+  background-color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  color: #1a1a1a;
+  margin-bottom: 12px;
+  font-weight: 800;
+  background: linear-gradient(90deg, #1976d2, #00c6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title p {
+  font-size: 18px;
+  color: #666;
+}
+
+.students-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.student-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 1px solid #f0f0f0;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.student-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(25, 118, 210, 0.15);
+  border-color: rgba(25, 118, 210, 0.2);
+}
+
+.image-wrapper {
+  background: linear-gradient(135deg, #f6f8fd 0%, #f1f5f9 100%);
+  padding: 30px 0;
+  position: relative;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid #ffffff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  transition: transform 0.4s ease;
+}
+
+.student-card:hover .profile-img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 25px 20px 0;
+}
+
+.card-content h3 {
+  font-size: 22px;
+  color: #222;
+  margin: 0 0 5px 0;
+  font-weight: 700;
+}
+
+.role {
+  color: #666;
+  font-size: 15px;
+  margin: 0 0 20px 0;
+  font-weight: 500;
+}
+
+.company-badge {
+  display: inline-block;
+  background-color: #f0f7ff;
+  color: #1976d2;
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.company-badge strong {
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .placed-students-section {
+    padding: 60px 20px;
+  }
+  .section-title h2 {
+    font-size: 28px;
+  }
+}
